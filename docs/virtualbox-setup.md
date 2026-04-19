@@ -21,6 +21,7 @@
 -Name: vboxnet0
 IPv4: 10.0.1.0/24 (DHCP server enabled)
 
+<img width="1913" height="1030" alt="Image" src="https://github.com/user-attachments/assets/d708f810-9b0c-49bd-8c8e-c84a746dfe80" />
 
 
 ### 2. Download OS Images
@@ -32,13 +33,13 @@ IPv4: 10.0.1.0/24 (DHCP server enabled)
 
 ### 3. Kali Linux VM (Attacker)
 
--New → Name: kali-attacker → Type: Linux → Version: Debian 64-bit
+-New → Name: kali-attack box → Type: Linux → Version: Debian 64-bit
 
--Memory: 4096MB → Processors: 2
+-Memory: 4096MB → Processors: 2 (This is the minimum, can be increased if host resources permmit)
 
 -Create virtual hard disk → VDI → Dynamically allocated → 40GB
 
--Settings → Network → Adapter 1 → Enable → Host-only Adapter → vboxnet0
+-Settings → Network → Adapter 1 → Enable → NAT Network → vboxnet0
 
 -Mount Kali ISO → Start → Install (username: kali, password: kali)
 
@@ -52,7 +53,7 @@ IPv4: 10.0.1.0/24 (DHCP server enabled)
 
 -Create virtual hard disk → VDI → Dynamically allocated → 30GB
 
--Settings → Network → Adapter 1 → Enable → Host-only Adapter → vboxnet0
+-Settings → Network → Adapter 1 → Enable → NAT Network → vboxnet0
 
 -Mount Ubuntu Server ISO → Start → Install (minimal server)
 
