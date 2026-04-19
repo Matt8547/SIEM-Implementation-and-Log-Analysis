@@ -22,6 +22,11 @@ HTTP traffic - System logs - Investigations
 | **Target** | Ubuntu 22.04 | Elastic Agent, Packetbeat | Generate telemetry |
 | **SIEM** | Elastic | Kibana, Detection Rules | Collect, analyze, alert |
 
+
+</div>
+
+<img width="820" height="716" alt="Image" src="https://github.com/user-attachments/assets/c5087c38-605a-463d-b6b5-b7ed9967ccb0" />
+
 ## Data Sources
 - **Host telemetry**: System logs, process activity, authentication events
 - **Network flows**: Packetbeat capturing protocols, ports, and traffic volume
