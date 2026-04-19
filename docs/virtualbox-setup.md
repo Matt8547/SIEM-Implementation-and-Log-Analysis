@@ -3,7 +3,7 @@
 ## Prerequisites
 - **VirtualBox 7.1.** (latest)
 - **Host machine**: 8GB+ RAM, 50GB free disk
-- **Network**: Host-only adapter for VM-to-VM communication
+- **Network**: NAT Network for VM-to-VM communication
 
 ## VM Specifications
 
@@ -17,9 +17,9 @@
 
 ### 1. Create Host-Only Network
 
--VirtualBox → File → Host Network Manager → Create
-Name: vboxnet0
-IPv4: 192.168.56.1/24 (DHCP server enabled)
+-VirtualBox → File → Tools → Network Manager → NAT Networks → Create
+-Name: vboxnet0
+IPv4: 10.0.1.0/24 (DHCP server enabled)
 
 
 
