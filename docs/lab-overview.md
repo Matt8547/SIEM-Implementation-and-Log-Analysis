@@ -20,7 +20,7 @@ HTTP traffic - System logs - Investigations
 |------|-------|-------|---------|
 | **Attacker** | Kali Linux | Nmap, SSH clients | Generate detectable traffic |
 | **Target** | Ubuntu 22.04 | Elastic Agent, Packetbeat | Generate telemetry |
-| **SIEM** | Elastic Cloud | Kibana, Detection Rules | Collect, analyze, alert |
+| **SIEM** | Elastic | Kibana, Detection Rules | Collect, analyze, alert |
 
 ## Data Sources
 - **Host telemetry**: System logs, process activity, authentication events
