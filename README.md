@@ -13,9 +13,7 @@ Hands-on VirtualBox SIEM lab project demonstrating Elastic-based log collection,
 <div>
     <img src="https://img.shields.io/badge/-VirtualBox-183A61?&style=for-the-badge&logo=virtualbox&logoColor=white" />
     <img src="https://img.shields.io/badge/-Elastic-005571?&style=for-the-badge&logo=Elastic&logoColor=white" />
-    <img src="https://img.shields.io/badge/-Wireshark-1679A7?&style=for-the-badge&logo=Wireshark&logoColor=white" />
     <img src="https://img.shields.io/badge/-Nmap-0078D7?&style=for-the-badge&logo=nmap&logoColor=white" />
-    <img src="https://img.shields.io/badge/-pfSense-212121?&style=for-the-badge&logo=pfsense&logoColor=white" />
     <img src="https://img.shields.io/badge/-Kali%20Linux-268BFF?style=for-the-badge&logo=kali-linux&logoColor=white" />
 </div>
 
