@@ -19,3 +19,32 @@ Hands-on VirtualBox SIEM lab project demonstrating Elastic-based log collection,
     <img src="https://img.shields.io/badge/-Kali%20Linux-268BFF?style=for-the-badge&logo=kali-linux&logoColor=white" />
 </div>
 
+## Lab Setup
+<div>
+- Kali VM used as traffic generator
+- Target VM used as monitored endpoint
+- Elastic used for log ingestion, dashboards, and alerts
+
+## Data Collected
+- Host logs
+- Authentication events
+- Network flow / packet-derived events
+
+## Detection Use Cases
+- Nmap scan detection
+- Failed login monitoring
+- Unusual outbound traffic review
+
+- ## Key Outcomes
+- Ingested telemetry from endpoint and network sources
+- Built dashboards for traffic visibility
+- Triggered and reviewed alerts
+- Documented investigation workflow
+
+## Screenshots
+(Add screenshots here)
+
+## Lessons Learned
+- Packet and host data together give better context
+- Clean documentation matters as much as the setup
+- Small, repeatable detections are best for a first portfolio project
