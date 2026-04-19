@@ -65,7 +65,7 @@ IPv4: 10.0.1.0/24 (DHCP server enabled)
 ```bash
 sudo apt update && sudo apt upgrade -y
 sudo apt install nmap ssh -y
-ip addr show  # Note IP address (update ip)
+ip addr show  # Note IP address (10.0.1.4)
 ```
 
 **Ubuntu Server:**
@@ -74,15 +74,16 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install openssh-server ufw -y
 sudo ufw allow ssh
 sudo ufw enable
-ip addr show  # Note IP address (TBU)
+ip addr show  # Note IP address (10.0.1.5)
 ```
 
 ### 6. Verify Connectivity
 
 From Kali to Ubuntu:
 ```bash
-nmap -sn 192.168.56.0/24    # Discover Ubuntu IP
-ssh ubuntu@192.168.56.102   # Test SSH access
+nmap -sn 10.0.1.0\24    # To Discover Ubuntu IP
+PING Discovered IP to confirm connectivity. 
+ssh ubuntu@Discovered IP  # Test SSH access
 ```
 
 ### 7. Screenshots
