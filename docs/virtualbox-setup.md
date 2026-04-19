@@ -57,7 +57,7 @@ IPv4: 10.0.1.0/24 (DHCP server enabled)
 
 -Mount Ubuntu Server ISO → Start → Install (minimal server)
 
-
+<img width="1821" height="938" alt="Image" src="https://github.com/user-attachments/assets/f143fa88-7454-4b12-a8da-02d8d86d9617" />
 
 ### 5. Post-Install Configuration
 
