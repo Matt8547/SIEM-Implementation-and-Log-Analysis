@@ -43,7 +43,7 @@ IPv4: 10.0.1.0/24 (DHCP server enabled)
 
 -Mount Kali ISO → Start → Install (username: kali, password: kali)
 
-
+<img width="1913" height="752" alt="Image" src="https://github.com/user-attachments/assets/63600a6c-99f7-4a9d-8007-282169901f28" />
 
 ### 4. Ubuntu Server VM (Target)
 
