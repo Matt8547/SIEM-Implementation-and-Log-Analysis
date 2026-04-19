@@ -12,6 +12,7 @@
 | **kali-attacker** | Kali Linux  | 2 cores | 4GB | 40GB VDI | Host-only Adapter 1 |
 | **ubuntu-target** | Ubuntu Server 22.04 LTS | 2 cores | 4GB | 30GB VDI | Host-only Adapter 1 |
 
+
 ## Step-by-Step Setup
 
 ### 1. Create Host-Only Network
@@ -20,10 +21,14 @@
 Name: vboxnet0
 IPv4: 192.168.56.1/24 (DHCP server enabled)
 
+
+
 ### 2. Download OS Images
 
 -Kali Linux: https://www.kali.org/get-kali/#kali-virtual-machines
 -Ubuntu Server: https://ubuntu.com/download/server
+
+
 
 ### 3. Kali Linux VM (Attacker)
 
@@ -38,6 +43,7 @@ IPv4: 192.168.56.1/24 (DHCP server enabled)
 -Mount Kali ISO → Start → Install (username: kali, password: kali)
 
 
+
 ### 4. Ubuntu Server VM (Target)
 
 -New → Name: ubuntu-target → Type: Linux → Version: Ubuntu 64-bit
@@ -49,6 +55,7 @@ IPv4: 192.168.56.1/24 (DHCP server enabled)
 -Settings → Network → Adapter 1 → Enable → Host-only Adapter → vboxnet0
 
 -Mount Ubuntu Server ISO → Start → Install (minimal server)
+
 
 
 ### 5. Post-Install Configuration
