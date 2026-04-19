@@ -84,4 +84,4 @@ nmap -sn 192.168.56.0/24    # Discover Ubuntu IP
 ssh ubuntu@192.168.56.102   # Test SSH access
 ```
 
-### 7. Snapshot Strategy
+### 7. Screenshots
