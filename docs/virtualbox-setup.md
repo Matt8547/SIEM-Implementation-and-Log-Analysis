@@ -83,7 +83,9 @@ From Kali to Ubuntu:
 ```bash
 nmap -sn 10.0.1.0\24    # To Discover Ubuntu IP
 PING Discovered IP to confirm connectivity. 
-ssh ubuntu@Discovered IP  # Test SSH access
+ssh Target(or host name you gave machine)@Discovered IP  # Test SSH access
 ```
+
+<img width="1423" height="671" alt="Image" src="https://github.com/user-attachments/assets/d5e065f0-0a42-4762-94fa-e3bba6ce9525" />
 
 ### 7. Screenshots
