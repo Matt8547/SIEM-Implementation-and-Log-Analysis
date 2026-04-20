@@ -23,7 +23,7 @@ Hands-on VirtualBox SIEM lab project demonstrating Elastic-based log collection,
 - Target VM used as monitored endpoint
 - Elastic used for log ingestion, dashboards, and alerts
 
-<img width="820" height="716" alt="Image" src="https://github.com/user-attachments/assets/c5087c38-605a-463d-b6b5-b7ed9967ccb0" />
+<img width="835" height="727" alt="Image" src="https://github.com/user-attachments/assets/bdee1a2c-9226-4467-8421-8bf1123f6039" />
 
 ## Data Collected
 - Host logs
