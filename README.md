@@ -48,3 +48,5 @@ Hands-on VirtualBox SIEM lab project demonstrating Elastic-based log collection,
 - Packet and host data together give better context
 - Clean documentation matters as much as the setup
 - Small, repeatable detections are best for a first portfolio project
+
+- Add link to next step
