@@ -46,4 +46,5 @@ HTTP traffic - System logs - Investigations
 ## Why This Lab?
 I decided to use this lab as it simulates a real SOC analyst workflow: **collect → detect → investigate → document**. Uses enterprise tools (Elastic Stack) in a controlled environment to prove practical blue-team skills.
 
+## Next Steps
  [VirtualBox Setup](https://github.com/Matt8547/SIEM-Implementation-and-Log-Analysis/blob/main/docs/virtualbox-setup.md)
