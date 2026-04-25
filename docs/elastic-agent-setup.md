@@ -31,3 +31,29 @@ sudo journalctl -u elastic-agent -f
 ```
 
 ### 4. Configure Integrations (Kibana UI)
+
+
+## Expected Data Streams
+| Integration | Data Collected |
+|-------------|----------------|
+| **System** | `/var/log/*.log`, CPU, memory, disk |
+| **Packetbeat** | Network flows, HTTP requests, DNS |
+
+## Verification Checklist
+- [ ] Agent shows **Healthy** in Fleet → Agents
+- [ ] Logs appear in **Discover** (`host.name:ubuntu-target`)
+- [ ] Metrics dashboard shows **CPU/Memory usage**
+- [ ] Packetbeat flows visible (`network.protocol: tcp`)
+
+## Troubleshooting
+| Issue | Fix |
+|-------|-----|
+| `Agent offline` | `sudo systemctl restart elastic-agent` |
+| `Enrollment failed` | Verify token hasn't expired (Kibana → Fleet → Settings) |
+| `No logs in Kibana` | Check `sudo journalctl -u elastic-agent` for errors |
+
+## Next Steps
+- [Packetbeat-specific config](packetbeat-setup.md)
+- [Generate test traffic](detection-rules.md)
+
+**Screenshot example**: Add `![Agent healthy in Fleet](screenshots/agent-healthy.png)`
