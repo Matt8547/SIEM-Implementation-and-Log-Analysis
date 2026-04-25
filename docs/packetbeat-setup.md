@@ -37,18 +37,17 @@ packetbeat.flows:
 
 packetbeat.protocols:
   - type: dns
-    ports:[6]
-
+    ports: [53]
   - type: http
-    ports:[7]
+    ports: [80, 443, 8080]
 
 output.elasticsearch:
-  hosts: ["https://YOUR-ELASTIC-ENDPOINT:9200"]
+  hosts: ["localhost:9200"]
   username: "elastic"
-  password: "YOUR_PASSWORD"
+  password: "Your Password "
 
 setup.kibana:
-  host: "https://YOUR-KIBANA-ENDPOINT:5601"
+  host: "localhost:5601"
 ```
 
 ## Setup Tasks
