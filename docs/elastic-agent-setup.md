@@ -6,27 +6,32 @@
 
 -<img width="1204" height="640" alt="Image" src="https://github.com/user-attachments/assets/9310da48-6cb7-4314-891a-337101d99874" />
 
-
-##Fleet enrollment(Kibana → Fleet → Add Agent → Select Architecture → copy command and paste into Terminal of target machine)
+<div>
+  
+### Fleet enrollment
+Kibana → Fleet → Add Agent → Select Architecture → Copy Command and Paste into Terminal of Target machine
 
 -<img width="1589" height="268" alt="Image" src="https://github.com/user-attachments/assets/f710b00d-f2c4-470e-80ee-6033b1ec5e7a" />
+
+-<img width="766" height="791" alt="Image" src="https://github.com/user-attachments/assets/08d3a311-96e1-44ed-bda2-f49d1295301d" />
 
 ## Installation Steps
 
 ### 1. Download & Extract Agent
 ```bash
 cd ~
-curl -L -O https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-8.15.0-linux-x86_64.tar.gz
-tar xzvf elastic-agent-8.15.0-linux-x86_64.tar.gz
-cd elastic-agent-8.15.0-linux-x86_64/
+curl -L -O https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-9.3.3+build202604082258-linux-x86_64.tar.gz 
+tar xzvf elastic-agent-9.3.3+build202604082258-linux-x86_64.tar.gz
+cd elastic-agent-9.3.3+build202604082258-linux-x86_64
+
 ```
 
 ### 2. Enroll Agent with Fleet (Recommended)
 ```bash
 sudo ./elastic-agent install \
-  --url=https://fleet.YOUR_ELASTIC_CLOUD_URL \
+  --url=https://fleet.YOUR_ELASTIC_SERVER_URL \
   --enrollment-token=YOUR_FLEET_TOKEN_HERE \
-  --non-interactive
+  --insecure (if using a self signed certificate) 
 ```
 
 ### 3. Verify Agent Status
