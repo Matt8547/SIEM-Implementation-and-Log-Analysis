@@ -7,7 +7,7 @@
 -<img width="1204" height="640" alt="Image" src="https://github.com/user-attachments/assets/9310da48-6cb7-4314-891a-337101d99874" />
 
 
-##Fleet enrollment(Kibana → Fleet → Add Agent → Enrollment tokens)
+##Fleet enrollment(Kibana → Fleet → Add Agent → Select Architecture → copy command and paste into Terminal of target machine)
 
 -<img width="1589" height="268" alt="Image" src="https://github.com/user-attachments/assets/f710b00d-f2c4-470e-80ee-6033b1ec5e7a" />
 
