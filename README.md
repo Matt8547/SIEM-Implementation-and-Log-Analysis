@@ -49,4 +49,4 @@ Hands-on VirtualBox SIEM lab project demonstrating Elastic-based log collection,
 - Clean documentation matters as much as the setup
 - Small, repeatable detections are best for a first portfolio project
 
-[Lab Overview](https://github.com/Matt8547/SIEM-Implementation-and-Log-Analysis/blob/main/docs/lab-overview.md)) 
+[Lab Overview](https://github.com/Matt8547/SIEM-Implementation-and-Log-Analysis/blob/main/docs/lab-overview.md)
