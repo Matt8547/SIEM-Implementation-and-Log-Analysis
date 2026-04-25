@@ -41,6 +41,9 @@ packetbeat.protocols:
   - type: http
     ports: [80, 443, 8080]
 
+
+
+
 output.elasticsearch:
   hosts: ["localhost:9200"]
   username: "elastic"
