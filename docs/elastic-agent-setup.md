@@ -13,7 +13,7 @@ Kibana → Fleet → Add Agent → Select Architecture → Copy Command and Past
 
 -<img width="1589" height="268" alt="Image" src="https://github.com/user-attachments/assets/f710b00d-f2c4-470e-80ee-6033b1ec5e7a" />
 
--<img width="766" height="791" alt="Image" src="https://github.com/user-attachments/assets/08d3a311-96e1-44ed-bda2-f49d1295301d" />
+<img width="766" height="720" alt="Image" src="https://github.com/user-attachments/assets/811a2329-5bf6-4a00-8d5c-267a77fe0273" />
 
 ## Installation Steps
 
@@ -29,8 +29,8 @@ cd elastic-agent-9.3.3+build202604082258-linux-x86_64
 ### 2. Enroll Agent with Fleet (Recommended)
 ```bash
 sudo ./elastic-agent install \
-  --url=https://fleet.YOUR_ELASTIC_SERVER_URL \
-  --enrollment-token=YOUR_FLEET_TOKEN_HERE \
+  --url=https://fleet.YOUR_ELASTIC_SERVER_URL 
+  --enrollment-token=YOUR_FLEET_TOKEN_HERE 
   --insecure (if using a self signed certificate) 
 ```
 
