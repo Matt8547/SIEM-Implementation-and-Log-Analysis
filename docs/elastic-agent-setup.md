@@ -3,6 +3,11 @@
 ## Prerequisites
 - Ubuntu Server 22.04 VM running and accessible via SSH
 - Elastic Cloud account OR self-hosted Elasticsearch/Kibana
+
+<img width="1204" height="640" alt="Image" src="https://github.com/user-attachments/assets/9310da48-6cb7-4314-891a-337101d99874" />
+
+
+
 - **Fleet enrollment token** (Kibana → Fleet → Settings → Enrollment tokens)
 
 ## Installation Steps
