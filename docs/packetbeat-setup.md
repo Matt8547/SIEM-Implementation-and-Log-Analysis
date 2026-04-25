@@ -83,10 +83,10 @@ To validate the setup, traffic was generated from the Kali Linux VM toward the U
 
 ### Example test activity
 ```bash
-nmap -sS 192.168.56.20
-curl http://192.168.56.20
+nmap -sS Target IP
+curl http://Target IP
 nslookup google.com
-ssh user@192.168.56.20
+ssh user@Target IP
 ```
 
 ## Verification in Kibana
