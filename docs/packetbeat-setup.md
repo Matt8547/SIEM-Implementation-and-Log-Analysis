@@ -41,9 +41,6 @@ packetbeat.protocols:
   - type: http
     ports: [80, 443, 8080]
 
-
-
-
 output.elasticsearch:
   hosts: ["localhost:9200"]
   username: "elastic"
@@ -66,6 +63,8 @@ sudo packetbeat test config -e
 sudo packetbeat test output
 ```
 
+<img width="800" height="653" alt="Image" src="https://github.com/user-attachments/assets/90b1ff2f-34c8-4ad9-8c89-046f2747f1a3" />
+
 ### Load dashboards
 ```bash
 sudo packetbeat setup -e
@@ -75,6 +74,9 @@ sudo packetbeat setup -e
 ```bash
 sudo systemctl restart packetbeat
 ```
+
+<img width="803" height="653" alt="image" src="https://github.com/user-attachments/assets/88e64723-2eff-46ee-ac6a-0a162015fc17" />
+
 
 ## Traffic Generation
 To validate the setup, traffic was generated from the Kali Linux VM toward the Ubuntu Server VM. Packetbeat was then used to observe flows and protocol activity related to scanning and service access. 
