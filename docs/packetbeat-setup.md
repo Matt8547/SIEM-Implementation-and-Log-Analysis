@@ -21,9 +21,11 @@ sudo systemctl enable packetbeat
 sudo systemctl start packetbeat
 sudo systemctl status packetbeat
 ```
+  <img width="799" height="340" alt="image" src="https://github.com/user-attachments/assets/86ab6214-8247-4075-b558-edbe279bcd56" />
+
 
 ## Configuration
-Packetbeat was configured in `/etc/packetbeat/packetbeat.yml` to monitor the main VM interface and collect traffic flow data. Elastic’s flow documentation explains that the `packetbeat.flows` section is used to collect statistics on flows, and that if this section is missing, flow monitoring is disabled. [cite:17][cite:136]
+Packetbeat was configured in `/etc/packetbeat/packetbeat.yml` to monitor the main VM interface and collect traffic flow data. Elastic’s flow documentation explains that the `packetbeat.flows` section is used to collect statistics on flows, and that if this section is missing, flow monitoring is disabled. 
 
 ### Example configuration
 ```yaml
@@ -50,7 +52,7 @@ setup.kibana:
 ```
 
 ## Setup Tasks
-After editing the configuration file, Packetbeat was tested and dashboards were loaded into Kibana. Elastic and other installation references show Packetbeat setup and dashboard loading as part of the normal deployment workflow. [cite:135][cite:138]
+After editing the configuration file, Packetbeat was tested and dashboards were loaded into Kibana. Elastic and other installation references show Packetbeat setup and dashboard loading as part of the normal deployment workflow. 
 
 ### Test configuration
 ```bash
@@ -73,7 +75,7 @@ sudo systemctl restart packetbeat
 ```
 
 ## Traffic Generation
-To validate the setup, traffic was generated from the Kali Linux VM toward the Ubuntu Server VM. Packetbeat was then used to observe flows and protocol activity related to scanning and service access. [cite:20][cite:23]
+To validate the setup, traffic was generated from the Kali Linux VM toward the Ubuntu Server VM. Packetbeat was then used to observe flows and protocol activity related to scanning and service access. 
 
 ### Example test activity
 ```bash
@@ -84,13 +86,13 @@ ssh user@192.168.56.20
 ```
 
 ## Verification in Kibana
-Verification was completed in Kibana by checking for Packetbeat indices, network flow records, and dashboard activity. Packetbeat sends JSON documents into Elasticsearch for each observed transaction or flow, which can then be explored in Kibana. [cite:20][cite:139]
+Verification was completed in Kibana by checking for Packetbeat indices, network flow records, and dashboard activity. Packetbeat sends JSON documents into Elasticsearch for each observed transaction or flow, which can then be explored in Kibana. 
 
 ### Useful checks
 - Confirm Packetbeat service is running on Ubuntu.
 - Search Discover for `agent.type : "packetbeat"`.
 - Filter on `source.ip`, `destination.ip`, or `network.protocol`.
-- Review dashboards for top talkers, protocols, and flow volume. [cite:20][cite:147][cite:150]
+- Review dashboards for top talkers, protocols, and flow volume. 
 
 ## Example KQL Queries
 ```text
@@ -101,7 +103,7 @@ destination.ip : "192.168.56.20"
 ```
 
 ## Findings
-Packetbeat successfully captured flow-level visibility between the Kali and Ubuntu VMs and made it possible to identify scans, service access, and basic network behavior in Kibana. This complemented the host-level logs from Elastic Agent and improved investigation context. [cite:17][cite:20]
+Packetbeat successfully captured flow-level visibility between the Kali and Ubuntu VMs and made it possible to identify scans, service access, and basic network behavior in Kibana. This complemented the host-level logs from Elastic Agent and improved investigation context. 
 
 ## Troubleshooting
 | Issue | Fix |
