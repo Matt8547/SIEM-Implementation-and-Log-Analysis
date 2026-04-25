@@ -64,7 +64,8 @@ sudo journalctl -u elastic-agent -f
 | `No logs in Kibana` | Check `sudo journalctl -u elastic-agent` for errors |
 
 
-**Screenshot example**: Add `![Agent healthy in Fleet](screenshots/agent-healthy.png)`
+<img width="1836" height="759" alt="image" src="https://github.com/user-attachments/assets/3ee648ee-04b9-4b34-a671-8f2672c969bb" />
+
 
 
 ## Next Steps
