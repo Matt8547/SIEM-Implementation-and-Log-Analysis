@@ -133,12 +133,7 @@ Packetbeat successfully captured flow-level visibility between the Kali and Ubun
 | Missing dashboards | Run `sudo packetbeat setup -e` again |
 
 
-## Screenshots
-Add screenshots such as:
-- `screenshots/packetbeat-service-status.png`
-- `screenshots/packetbeat-discover.png`
-- `screenshots/packetbeat-dashboard.png`
-
 ## Next Steps
-Planned future improvements include adding more protocols, refining dashboards, and testing detections using larger traffic sets and suspicious behavior simulations.
+
+Planned future improvements include adding more servers and clients to simulate a more realistic enterprise environment, refining dashboards, and testing detections using larger traffic sets and suspicious behavior simulations.
 
