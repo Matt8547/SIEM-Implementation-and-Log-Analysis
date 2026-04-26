@@ -137,4 +137,4 @@ Packetbeat successfully captured flow-level visibility between the Kali and Ubun
 
 Planned future improvements include adding more servers and clients to simulate a more realistic enterprise environment, refining dashboards, and testing detections using larger traffic sets and suspicious behavior simulations.
 
-https://github.com/Matt8547/SIEM-Implementation-and-Log-Analysis/blob/main/docs/detection-rules.md
+- [Generate test traffic](detection-rules.md)
