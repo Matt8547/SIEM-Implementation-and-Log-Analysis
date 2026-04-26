@@ -1,13 +1,13 @@
 # Packetbeat Setup
 
 ## Overview
-Packetbeat was installed on the Ubuntu Server target VM to capture network traffic and send flow and protocol data to Elastic. This allowed the lab to monitor activity such as Nmap scans, SSH access attempts, HTTP requests, and DNS traffic in Kibana. [cite:20][cite:23]
+Packetbeat was installed on the Ubuntu Server target VM to capture network traffic and send flow and protocol data to Elastic. This allowed the lab to monitor activity such as Nmap scans, SSH access attempts, HTTP requests, and DNS traffic in Kibana. 
 
 ## Purpose
-The goal of Packetbeat in this project was to provide network visibility alongside host telemetry from Elastic Agent. Packetbeat captures packets from the local interface, creates network flow records, and can decode supported protocols such as HTTP and DNS for investigation and dashboarding. [cite:20][cite:17]
+The goal of Packetbeat in this project was to provide network visibility alongside host telemetry from Elastic Agent. Packetbeat captures packets from the local interface, creates network flow records, and can decode supported protocols such as HTTP and DNS for investigation and dashboarding. 
 
 ## Installation
-Packetbeat was installed on the Ubuntu Server VM using the Elastic package repository and configured to send data to Elastic Cloud / Elasticsearch. Elastic documents both quick-start installation and direct configuration through the `packetbeat.yml` file. [cite:135][cite:136]
+Packetbeat was installed on the Ubuntu Server VM using the Elastic package repository and configured to send data to Elastic Cloud / Elasticsearch. Elastic documents both quick-start installation and direct configuration through the `packetbeat.yml` file. [cite:136]
 
 ### Install Packetbeat
 ```bash
@@ -137,3 +137,4 @@ Packetbeat successfully captured flow-level visibility between the Kali and Ubun
 
 Planned future improvements include adding more servers and clients to simulate a more realistic enterprise environment, refining dashboards, and testing detections using larger traffic sets and suspicious behavior simulations.
 
+https://github.com/Matt8547/SIEM-Implementation-and-Log-Analysis/blob/main/docs/detection-rules.md
