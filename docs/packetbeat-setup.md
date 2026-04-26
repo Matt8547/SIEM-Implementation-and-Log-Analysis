@@ -7,7 +7,7 @@ Packetbeat was installed on the Ubuntu Server target VM to capture network traff
 The goal of Packetbeat in this project was to provide network visibility alongside host telemetry from Elastic Agent. Packetbeat captures packets from the local interface, creates network flow records, and can decode supported protocols such as HTTP and DNS for investigation and dashboarding. 
 
 ## Installation
-Packetbeat was installed on the Ubuntu Server VM using the Elastic package repository and configured to send data to Elastic Cloud / Elasticsearch. Elastic documents both quick-start installation and direct configuration through the `packetbeat.yml` file. [cite:136]
+Packetbeat was installed on the Ubuntu Server VM using the Elastic package repository and configured to send data to Elastic Cloud / Elasticsearch. Elastic documents both quick-start installation and direct configuration through the `packetbeat.yml` file. 
 
 ### Install Packetbeat
 ```bash
