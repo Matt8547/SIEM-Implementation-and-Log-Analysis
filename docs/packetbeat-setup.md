@@ -75,7 +75,7 @@ sudo packetbeat setup -e
 sudo systemctl restart packetbeat
 ```
 
-<img width="803" height="653" alt="image" src="https://github.com/user-attachments/assets/88e64723-2eff-46ee-ac6a-0a162015fc17" />
+
 
 
 ## Traffic Generation
