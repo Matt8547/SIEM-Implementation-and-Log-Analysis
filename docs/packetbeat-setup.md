@@ -92,6 +92,21 @@ ssh user@Target IP
 ## Verification in Kibana
 Verification was completed in Kibana by checking for Packetbeat indices, network flow records, and dashboard activity. Packetbeat sends JSON documents into Elasticsearch for each observed transaction or flow, which can then be explored in Kibana. 
 
+<img width="1847" height="920" alt="image" src="https://github.com/user-attachments/assets/f370471a-3b8f-46d1-ad55-e3ff445864c8" />
+
+
+<img width="1843" height="924" alt="image" src="https://github.com/user-attachments/assets/90d2836d-0af3-4a26-8327-47eea6b1ae11" />
+
+
+<img width="1846" height="927" alt="image" src="https://github.com/user-attachments/assets/62193f6e-1819-48c6-a52b-d335f963a49e" />
+
+
+<img width="1847" height="962" alt="image" src="https://github.com/user-attachments/assets/e3f38b0d-8e4b-40b9-a331-64c6afb967e1" />
+
+
+<img width="522" height="845" alt="image" src="https://github.com/user-attachments/assets/9fd8ecd9-79bc-462a-ab31-5f96236cf283" />
+
+
 ### Useful checks
 - Confirm Packetbeat service is running on Ubuntu.
 - Search Discover for `agent.type : "packetbeat"`.
