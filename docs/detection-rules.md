@@ -94,7 +94,7 @@ destination.port: 22 AND ssh.auth_success: true
 <img width="1852" height="951" alt="image" src="https://github.com/user-attachments/assets/6a6b1cd3-028c-4b43-9598-5f8b9888225b" />
 
 
-### Nmap Scan Detection (Network Reconnaissance)
+## Nmap Scan Detection (Network Reconnaissance)
 
 **What Packetbeat captures:**
 - TCP SYN/ACK scans (half-open connections)
@@ -134,6 +134,10 @@ network.transport: tcp AND tcp.flags.syn: true AND destination.port in (22,80,44
 - 1 source → many destination ports (not single service)
 - Short-duration flows (scanner doesn't complete handshake)
 - SYN-only traffic (no full TCP 3-way)
+
+<img width="1846" height="926" alt="image" src="https://github.com/user-attachments/assets/1feb6985-97eb-471a-aafd-3309890637e9" />
+
+ 
 
 **Analyst playbook:**
 1. Filter `source.ip` → check port count and timing
