@@ -55,12 +55,20 @@ destination.port: 22 AND ssh.auth_success: true
 - Repeated failures over a short time window
 - Connections targeting the SIEM or monitored Linux host
 
+<img width="1850" height="871" alt="image" src="https://github.com/user-attachments/assets/917c8ff1-993f-4314-aa7a-d430c6e65451" />
+
+<img width="1851" height="926" alt="image" src="https://github.com/user-attachments/assets/2ab680ca-36e2-4560-baca-d93506ca2d25" />
+
+
 **Analyst response:**  
 - Identify the source IP generating repeated attempts
 - Check whether the activity was expected lab testing or unknown traffic
 - Review surrounding activity from the same IP
 - Consider blocking or isolating the source if this were a live environment
-- 
+
+<img width="1834" height="776" alt="image" src="https://github.com/user-attachments/assets/3cf182f6-b711-4292-8801-c609e264bb65" />
+
+
 ### SSH Traffic Monitoring (Port 22)
 
 **What Packetbeat captures:**
@@ -81,7 +89,64 @@ destination.port: 22 AND ssh.auth_success: true
 | `flow.bytes` | Total bytes transferred | 1234 |
 | `flow.packets` | Packets sent/received | 15/12 |
 
-# NMAP Scan
+**Below is an example of a successful login for refrence**
+
+<img width="1852" height="951" alt="image" src="https://github.com/user-attachments/assets/6a6b1cd3-028c-4b43-9598-5f8b9888225b" />
+
+
+### Nmap Scan Detection (Network Reconnaissance)
+
+**What Packetbeat captures:**
+- TCP SYN/ACK scans (half-open connections)
+- Multiple port probes from single source
+- High connection rates to target host
+- Stealth scan patterns (low/rare ports)
+
+**Why it matters:**  
+Port scanning is typically the first step in reconnaissance (MITRE ATT&CK T1046: Network Service Discovery). Detects attackers mapping your network.
+
+**Key fields in Kibana:**
+| Field | Description | Example |
+|-------|-------------|---------|
+| `source.ip` | Scanner IP (Kali) | 10.0.1.5 |
+| `destination.ip` | Target host | 10.0.1.7 |
+| `destination.port` | Probed ports | 22,80,443,... |
+| `network.transport` | Scan type | tcp |
+| `tcp.flags.syn` | SYN scan | true |
+| `event.dataset` | Packetbeat protocol | tcp |
+
+**Kibana query:**  
+```kql
+# 1. All TCP SYN scans (Nmap -sS default)
+network.transport: tcp AND tcp.flags.syn: true AND tcp.flags.ack: false
+
+# 2. Single IP scanning many ports (>10 unique ports)
+network.transport: tcp AND tcp.flags.syn: true | stats unique_ports = unique(destination.port) by source.ip | where unique_ports > 10
+
+# 3. Rapid port probes (20+ connections in 60s)
+network.transport: tcp AND tcp.flags.syn: true AND @timestamp > now-60s | stats count() by source.ip | where count >= 20
+
+# 4. SYN scan on common ports (22,80,443,3389)
+network.transport: tcp AND tcp.flags.syn: true AND destination.port in (22,80,443,3389,445,1433)
+```
+
+**What to look for:**
+- 1 source → many destination ports (not single service)
+- Short-duration flows (scanner doesn't complete handshake)
+- SYN-only traffic (no full TCP 3-way)
+
+**Analyst playbook:**
+1. Filter `source.ip` → check port count and timing
+2. Correlate with SSH/ICMP for attack chain
+3. Review `flow.final: false` (aborted connections)
+4. Response: block IP, asset inventory check (what is running that the attacker may be scanning for)?
+
+**Kibana visualisation:**
+- **Top Values**: source.ip by unique ports
+- **Line chart**: SYN probes over time
+- **Heatmap**: source.ip x destination.port matrix
+
+**MITRE ATT&CK:** T1046 (Network Service Discovery) 
 
 # FTP
 destination.port: 21
