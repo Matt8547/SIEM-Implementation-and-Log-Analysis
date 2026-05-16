@@ -10,11 +10,11 @@ Packetbeat was configured to monitor protocols including SSH, FTP, Telnet, HTTP 
 ## Detection Cases
 | Rule Name | Suspicious Behavior | Data Source | Example Query | Analyst Action |
 |---|---|---|---|---|
-| SSH brute force | Multiple failed SSH logins from one source | filebeat + packetbeat | ... | Check source IP, count failures, block if needed |
-| Nmap scan | Many connection attempts across ports in a short time | packetbeat | ... | Confirm scan, isolate source |
-| Telnet access | Telnet traffic to port 23 | packetbeat | ... | Validate if Telnet is approved |
-| FTP access | Legacy FTP traffic to port 21 | packetbeat | ... | Check if file transfer is expected |
-| ICMP sweep | Repeated ICMP echo requests to multiple hosts | packetbeat | ... | Verify recon activity |
+| SSH brute force | Multiple failed SSH logins from one source | filebeat + packetbeat | event.action: "ssh_auth_failure" and event.outcome: "failure" | Check source IP, count failures, block if needed |
+| Nmap scan | Many connection attempts across ports in a short time | packetbeat | where (destination.port >= 1 and destination.port <= 65535) also add where ports_scanned >= 10 | Confirm scan, isolate source |
+| Telnet access | Telnet traffic to port 23 | packetbeat | destination.port == 23 or network.transport == "telnet" | Validate if Telnet is approved |
+| FTP access | Legacy FTP traffic to port 21 | packetbeat | destination.port: 21 or destination.port: 20 and event.action: "ftp_login" and event.outcome: "success | Check if file transfer is expected |
+| ICMP sweep | Repeated ICMP echo requests to multiple hosts | packetbeat | network.transport: "icmp" and icmp.type: 8 | Verify recon activity and what an attacker could be looking for |
 
 ## Rule Details
 
@@ -24,7 +24,7 @@ Repeated failed SSH login attempts may indicate brute-force activity against our
 
 **Why it matters:**  
 SSH is a common remote administration protocol and a frequent target for attackers trying to gain initial access.
-...
+
 # SSH brute force
 event.dataset: "system.auth" and message: ("Failed password" or "authentication failure")
 **Relevant fields:**  
@@ -59,6 +59,9 @@ destination.port: 22 AND ssh.auth_success: true
 
 <img width="1851" height="926" alt="image" src="https://github.com/user-attachments/assets/2ab680ca-36e2-4560-baca-d93506ca2d25" />
 
+<Div>
+
+<Div>
 
 **Analyst response:**  
 - Identify the source IP generating repeated attempts
@@ -67,6 +70,10 @@ destination.port: 22 AND ssh.auth_success: true
 - Consider blocking or isolating the source if this were a live environment
 
 <img width="1834" height="776" alt="image" src="https://github.com/user-attachments/assets/3cf182f6-b711-4292-8801-c609e264bb65" />
+
+
+
+
 
 
 ### SSH Traffic Monitoring (Port 22)
