@@ -1,5 +1,5 @@
 # SIEM-Implementation-and-Log-Analysis
-Built a VirtualBox-based SIEM lab using Elastic to collect host and network telemetry, monitor traffic, and detect suspicious activity such as Nmap scans and failed logins. The project shows practical skills in log ingestion, dashboarding, alert review, and basic incident triage.
+Built a VirtualBox-based SIEM lab using Elastic to collect host and network telemetry, monitor traffic, and detect suspicious activity such as Nmap scans and failed SSH logins. The project shows practical skills in Virtualisation, log ingestion, dashboarding, alert review, and basic incident triage.
 
 ## Objective
 
@@ -40,9 +40,6 @@ Hands-on VirtualBox SIEM lab project demonstrating Elastic-based log collection,
 - Built dashboards for traffic visibility
 - Triggered and reviewed alerts
 - Documented investigation workflow
-
-## Screenshots
-(Add screenshots here)
 
 ## Lessons Learned
 - Packet and host data together give better context
