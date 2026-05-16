@@ -266,3 +266,4 @@ As the lab grows, future detections can include Elastic Defend, Sysmon, Sigma-ba
 - Convert simple detections into Elastic Security rules
 - Add Windows endpoint logs with Sysmon for host-based detections
 - Map all use cases to MITRE ATT&CK techniques
+- Addition of a PFsense Firewall
