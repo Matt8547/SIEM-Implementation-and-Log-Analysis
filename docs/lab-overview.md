@@ -7,11 +7,11 @@ Build a realistic SOC monitoring environment in VirtualBox to demonstrate Elasti
 Kali Linux → Ubuntu Server → Elastic SIEM
 (Attacker) (Monitored) (Cloud/Local)
 
-Nmap scans ←→  Elastic Agent ←→  Dashboards
+Nmap scans →  Elastic Agent →  Dashboards
 
-SSH brute force - Packetbeat - Alerts
+SSH brute force → Packetbeat → Alerts
 
-HTTP traffic - System logs - Investigations
+HTTP traffic → System logs → Investigations
 
 
 ## Components
