@@ -56,25 +56,21 @@ destination.port: 22 AND ssh.auth_success: true
 - Connections targeting the SIEM or monitored Linux host
 
 <img width="1850" height="871" alt="image" src="https://github.com/user-attachments/assets/917c8ff1-993f-4314-aa7a-d430c6e65451" />
+<br><br>
 
+
+<br><br>
 <img width="1851" height="926" alt="image" src="https://github.com/user-attachments/assets/2ab680ca-36e2-4560-baca-d93506ca2d25" />
 
-<Div>
-
-<Div>
-
-**Analyst response:**  
+### Analyst response:  
 - Identify the source IP generating repeated attempts
 - Check whether the activity was expected lab testing or unknown traffic
 - Review surrounding activity from the same IP
 - Consider blocking or isolating the source if this were a live environment
 
+<br><br>
 <img width="1834" height="776" alt="image" src="https://github.com/user-attachments/assets/3cf182f6-b711-4292-8801-c609e264bb65" />
-
-
-
-
-
+<br><br>
 
 ### SSH Traffic Monitoring (Port 22)
 
@@ -97,9 +93,10 @@ destination.port: 22 AND ssh.auth_success: true
 | `flow.packets` | Packets sent/received | 15/12 |
 
 **Below is an example of a successful login for refrence**
-
+<br><br>
 <img width="1852" height="951" alt="image" src="https://github.com/user-attachments/assets/6a6b1cd3-028c-4b43-9598-5f8b9888225b" />
 
+<br><br>
 
 ## Nmap Scan Detection (Network Reconnaissance)
 
@@ -146,11 +143,11 @@ network.transport: tcp AND tcp.flags.syn: true AND destination.port in (22,80,44
 
  
 
-**Analyst playbook:**
-1. Filter `source.ip` → check port count and timing
-2. Correlate with SSH/ICMP for attack chain
-3. Review `flow.final: false` (aborted connections)
-4. Response: block IP, asset inventory check (what is running that the attacker may be scanning for)?
+**Analyst response:**  
+- Pivot on the source IP to review all related connections
+- Check the volume and timing of port access attempts
+- Compare activity against expected admin or scanner behaviour
+- Escalate if scanning is unexpected or targets critical systems
 
 **Kibana visualisation:**
 - **Top Values**: source.ip by unique ports
@@ -159,11 +156,113 @@ network.transport: tcp AND tcp.flags.syn: true AND destination.port in (22,80,44
 
 **MITRE ATT&CK:** T1046 (Network Service Discovery) 
 
-# FTP
-destination.port: 21
+<br><br>
 
-# Telnet
-destination.port: 23
+### FTP Usage port 20 (data) or 21 (control)
 
-# ICMP
-network.protocol: "icmp"
+**Threat description:**  
+FTP is another plaintext protocol that may expose usernames, passwords, and transferred data.
+
+**Why it matters:**  
+Unsecured file transfer protocols are high-risk and often violate modern security baselines.
+
+**Relevant fields:**  
+- `destination.port`
+- `source.ip`
+- `destination.ip`
+- `network.transport`
+
+**Kibana query:**  
+```kql
+destination.port : (20 or 21) or source.port : (20 or 21)
+network.protocol : "ftp" or network.application : "ftp"
+network.protocol : "ftp" and event.outcome : "failure"
+```
+
+**What to look for:**  
+- Any FTP sessions between hosts
+- Repeated file-transfer related traffic
+- Systems using outdated transfer methods
+
+**Analyst response:**  
+- Validate whether the activity is expected
+- Review communicating hosts and session frequency
+- Recommend migration to SFTP or SCP
+- Flag the activity as insecure protocol usage
+
+<br><br>
+
+### 3. Telnet Usage port 23
+
+**Threat description:**  
+Telnet is an insecure protocol that transmits data in plaintext.
+
+**Why it matters:**  
+Use of Telnet in a real environment may expose credentials and indicate legacy or weakly secured systems.
+
+**Relevant fields:**  
+- `destination.port`
+- `event.dataset`
+- `source.ip`
+- `destination.ip`
+
+**Kibana query:**  
+```kql
+destination.port : 23 or source.port : 23
+network.protocol : "telnet" or network.application : "telnet"
+```
+
+**What to look for:**  
+- Any Telnet session in the environment
+- Repeated interactive connections
+- Unexpected systems communicating over Telnet
+
+**Analyst response:**  
+- Verify whether the connection was part of a lab test
+- Identify the source and destination systems
+- Recommend disabling Telnet and replacing it with SSH
+- Investigate whether credentials may have been exposed
+
+<br><br>
+
+### ICMP Sweep / Ping Activity
+**Threat description:**  
+ICMP traffic can be used for host discovery and environment mapping.
+
+**Why it matters:**  
+Ping sweeps are often part of early-stage reconnaissance.
+
+**Relevant fields:**  
+- `network.protocol`
+- `source.ip`
+- `destination.ip`
+
+**Kibana query:**  
+```kql
+network.protocol : "icmp" and icmp.type : "echo-request"
+```
+
+**What to look for:**  
+- One source sending ICMP requests to multiple hosts
+- Repeated echo requests in a short period
+- Reconnaissance patterns before other traffic appears
+
+**Analyst response:**  
+- Determine whether the ICMP traffic was expected testing
+- Check whether the same source later initiated scans or login attempts
+- Correlate with other Packetbeat events
+- Escalate if recon activity appears linked to broader attack behaviour
+
+---
+
+## Notes
+These detections are based on network telemetry collected by Packetbeat rather than endpoint logs.  
+As the lab grows, future detections can include Elastic Defend, Sysmon, Sigma-based rules, and correlation across multiple log sources.
+
+## Future Improvements
+- Further screenshots detailing FTP, Telnet and ICMP detections
+- Add threshold-based detections for repeated SSH attempts
+- Create Kibana dashboards for each protocol
+- Convert simple detections into Elastic Security rules
+- Add Windows endpoint logs with Sysmon for host-based detections
+- Map all use cases to MITRE ATT&CK techniques
