@@ -1,1 +1,45 @@
+## Notes
 
+### Lab Purpose
+This lab was built to simulate a small SOC-style monitoring environment using Elastic Stack and Packetbeat in VirtualBox. The goal was to capture network traffic, ingest it into Elasticsearch, and investigate suspicious activity in Kibana using practical detection queries.
+
+### Environment
+- **SIEM VM:** Ubuntu Server running Elasticsearch, Kibana, and Packetbeat
+- **Attacker VM:** Kali Linux used to generate test traffic
+- **Platform:** VirtualBox lab network
+- **Main protocols monitored:** SSH, FTP, Telnet, HTTP, DNS, and ICMP
+
+### Data Flow
+Traffic generated from the Kali VM was captured by Packetbeat and forwarded to Elasticsearch. The events were then explored in Kibana through Discover, dashboards, and saved searches.
+
+### What the Lab Demonstrates
+- Building a self-hosted Elastic SIEM lab
+- Configuring Packetbeat to monitor network traffic
+- Sending telemetry securely to Elasticsearch
+- Using Kibana to investigate suspicious events
+- Writing simple detection logic for common attack activity
+
+### Detection Scenarios
+The lab focused on a small set of realistic monitoring use cases:
+- **SSH brute force attempts** by looking for repeated failed SSH logins
+- **Nmap reconnaissance** by identifying one source host scanning multiple ports
+- **Insecure protocol usage** such as Telnet and FTP
+- **ICMP activity** for basic host discovery and ping sweeps
+
+### Key Lessons Learned
+- YAML formatting matters when editing `packetbeat.yml`, especially indentation
+- Packetbeat must be running and successfully shipping data before Kibana will show useful results
+- In Kibana 8, **Index Patterns** are now called **Data Views**
+- Detection writing is easier when starting with simple protocol and port-based queries
+- Troubleshooting service status, config errors, and missing indices is part of normal SIEM setup work
+
+### Troubleshooting Highlights
+A Packetbeat startup failure was traced to a YAML syntax issue in the flows section. After correcting the indentation, validating the config, and restarting the service, traffic could be generated and indexed correctly.
+
+### Skills Demonstrated
+This lab shows hands-on practice in:
+- SIEM deployment
+- Packet capture and protocol monitoring
+- Kibana query writing
+- Detection engineering fundamentals
+- Troubleshooting 
