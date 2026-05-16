@@ -1,1 +1,20 @@
+# Packetbeat for SIEM Lab
+packetbeat.interfaces.device: any
+packetbeat.interfaces.type: af_packet 
+packetbeat.interfaces.with_unprocessed: true
+packetbeat.flows:
+  enabled: true
+  timeout: 30s
+  period: 10s
+  tcp:
+    track_flags: true  # Enables SYN/ACK/RST flags
 
+packetbeat.protocols:
+  - type: icmp
+    enabled: true
+  - type: ssh
+    enabled: true
+  - type: ftp
+    enabled: true
+  - type: telnet
+    enabled: true
